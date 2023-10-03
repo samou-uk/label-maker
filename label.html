@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Label</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .left-element {
+            text-align: left;
+        }
+        
+        .right-element {
+            text-align: right;
+        }
+
+        .label {
+            width: 8cm;
+            height: 10cm;
+            border: 1px solid #000;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .label h1 {
+            font-size: 12px;
+            margin: 0 0 10px;
+        }
+
+        .label h5 {
+            font-size: 8px;
+            margin: 0 0 5px;
+        }
+
+        .label p {
+            font-size: 8px;
+            margin: 0 0 5px;
+        }
+
+        .label d {
+            font-size: 6px;
+            margin: 0 0 3px;
+        }
+
+        .nutrition-barcode-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .nutrition-table {
+            width: 50%;
+            font-size: 8px;
+        }
+
+        .nutrition-table th,
+        .nutrition-table td {
+            border: 1px solid #000;
+            padding: 1px;
+        }
+
+        .nutrition-table th {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .barcode {
+            margin-right: 10px;
+        }
+
+        .product-number {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="label">
+        <div class="left-element">
+            <div class="product-number">
+                <h1><strong>{{ product_number }}</strong></h1>
+		<h1><strong>Net Weight:</strong> {{ net_weight }}</h1>
+
+            </div>
+            <h1><strong>{{ english }}</strong></h1>
+            <h5><strong>{{ chinese }}</strong></h5>
+            <p><strong>Ingredients:</strong> {{ ingredients }}</p>
+	    <p>For allergens, see ingredients list in <strong>Bold</strong></p>
+            <p><strong>Country of Origin:</strong> {{ country }}</p>
+            <p><strong>Storage Instructions:</strong> {{ storage_instructions }}</p>
+            <p><strong>Instructions for Use:</strong> {{ instructions }}</p>
+            <p><strong>Best Before Date:</strong> {{ best_before_date }}</p>
+            <p><strong>Distributor: Fortune Foods UK LTD, 132 Friar Street Reading RG1 1EP</p>
+            <p><strong>info@fortunefoods.co.uk</p>
+            <div class="nutrition-barcode-container">
+                <div class="barcode">
+                    <img src="{{ barcode_image_path }}" width="130.75" height="70">
+                </div>
+                <table class="nutrition-table">
+                    <tr>
+                        <th>Nutrition Facts</th>
+                    </tr>
+                    <tr>
+                        <td>Typical Value Per 100g</td>
+                    </tr>
+                    <tr>
+                        <td>Energy: {{ energy }}</td>
+                    </tr>
+                    <tr>
+                        <td>Fat: {{ fat }}</td>
+                    </tr>
+                    <tr>
+                        <td>- of which Saturates: {{ saturates }}</td>
+                    </tr>
+                    <tr>
+                        <td>Carbohydrate: {{ carbs }}</td>
+                    </tr>
+                    <tr>
+                        <td>-of which Sugars: {{ sugars }}</td>
+                    </tr>
+                    <tr>
+                        <td>Protein: {{ proteins }}</td>
+                    </tr>
+                    <tr>
+                        <td>Salt: {{ salt }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
